@@ -14,6 +14,7 @@ import { EvntComponent } from "./evnt/evnt.component";
 import { EventgalleryComponent } from "./eventgallery/eventgallery.component";
 import { ScheduleComponent } from "./schedule/schedule.component";
 import { FaqComponent } from "./faq/faq.component";
+import { SponsorComponent } from "./sponsor/sponsor.component";
 
 const routes: Routes = [
 
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path:"eventgallery",component:EventgalleryComponent},
   {path:"schedule",component:ScheduleComponent},
   {path:"faq",component:FaqComponent},
+  {path:"sponsor",component:SponsorComponent},
 
 
 

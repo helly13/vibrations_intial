@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+// declare const teamfun:any;
+
 @Component({
   selector: 'app-team',
   templateUrl: './team.component.html',
@@ -10,6 +12,7 @@ export class TeamComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // teamfun();
   }
 
 }

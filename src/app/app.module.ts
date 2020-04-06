@@ -20,6 +20,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { EventgalleryComponent } from './eventgallery/eventgallery.component';
 import { EvntComponent } from "./evnt/evnt.component";
 import { FaqComponent } from './faq/faq.component';
+import { SponsorComponent } from './sponsor/sponsor.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { FaqComponent } from './faq/faq.component';
     ScheduleComponent,
     EventgalleryComponent,
     EvntComponent,
-    FaqComponent
+    FaqComponent,
+    SponsorComponent
   ],
   imports: [
     BrowserModule,
