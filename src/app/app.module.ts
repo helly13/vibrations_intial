@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { YouTubePlayerModule } from "@angular/youtube-player";
 import { GoogleMapsModule } from "@angular/google-maps";
 import { AgmCoreModule } from "@agm/core";
@@ -21,6 +24,10 @@ import { EventgalleryComponent } from './eventgallery/eventgallery.component';
 import { EvntComponent } from "./evnt/evnt.component";
 import { FaqComponent } from './faq/faq.component';
 import { SponsorComponent } from './sponsor/sponsor.component';
+import { GrabpassComponent } from './grabpass/grabpass.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 
 
 @NgModule({
@@ -40,7 +47,8 @@ import { SponsorComponent } from './sponsor/sponsor.component';
     EventgalleryComponent,
     EvntComponent,
     FaqComponent,
-    SponsorComponent
+    SponsorComponent,
+    GrabpassComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,13 @@ import { SponsorComponent } from './sponsor/sponsor.component';
     BrowserAnimationsModule,
     YouTubePlayerModule,
     GoogleMapsModule,
-    AgmCoreModule
+    AgmCoreModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatDialogModule,
+    MatFormFieldModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

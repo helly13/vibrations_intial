@@ -1,63 +1,65 @@
 <div>
     <!-- header-start -->
-        <header>
-          <div class="header-area " >
-              <div id="sticky-header" class="main-header-area">
-                  <!-- <div class="container" style="background-color: chartreuse;"> -->
-                      <div class="header_bottom_border">
-                          <div class="row align-items-center">
-                              <div class="col-xl-2 col-lg-2">
-                                  <div class="logo">
-                                      <a [routerLink]="['']" routerLinkActive="router-link-active">
-                                          <img src="../assets/img/logo.png" alt="">
-                                      </a>
-                                  </div>
-                              </div>
-                              <div class="col-xl-8 col-lg-8">
-                                  <div class="main-menu  d-none d-lg-block">
-                                      <nav>
-                                          <ul id="navigation">
-                                              <li><a [routerLink]="['']" routerLinkActive="router-link-active">home</a></li>
-                                              <li><a  [routerLink]="['../performer']" routerLinkActive="router-link-active">Performer</a></li>
+    <header>
+        <div class="header-area ">
+            <div id="sticky-header" class="main-header-area">
+                <!-- <div class="container" style="background-color: chartreuse;"> -->
+                <div class="header_bottom_border">
+                    <div class="row align-items-center">
+                        <div class="col-xl-2 col-lg-2">
+                            <div class="logo">
+                                <a [routerLink]="['']" routerLinkActive="router-link-active">
+                                    <img src="../assets/img/logo.png" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-xl-8 col-lg-8">
+                            <div class="main-menu  d-none d-lg-block">
+                                <nav>
+                                    <ul id="navigation">
+                                        <li><a [routerLink]="['']" routerLinkActive="router-link-active">home</a></li>
+                                        <li><a [routerLink]="['../performer']" routerLinkActive="router-link-active">Performer</a></li>
 
-                                              <li><a [routerLink]="['../aboutus']" routerLinkActive="router-link-active">About us <i class="ti-angle-down"></i></a>
-                                                  <ul class="submenu">
-                                                      <li><a [routerLink]="['../team']" routerLinkActive="router-link-active">Team member</a></li>
-                                                      <li><a [routerLink]="['../brocher']" routerLinkActive="router-link-active">Brocher</a></li>
-                                                      <li><a [routerLink]="['../aftermovie']" routerLinkActive="router-link-active">After Movies</a></li>
-                                                      <!-- <li><a href="elements.html">elements</a></li> -->
-                                                  </ul>
-                                              </li>
-                                              <li><a [routerLink]="['../event']" routerLinkActive="router-link-active">Events <i class="ti-angle-down"></i></a>
-                                                  <ul class="submenu">
-                                                      <li><a [routerLink]="['../event']" routerLinkActive="router-link-active">Events</a></li>
-                                                      <li><a [routerLink]="['../schedule']" routerLinkActive="router-link-active">Schedule</a></li>
-                                                      <li><a [routerLink]="['../eventgallery']" routerLinkActive="router-link-active">Event Gallery</a></li>
-                                                  </ul>
-                                              </li>
-                                              <li><a [routerLink]="['../contact']" routerLinkActive="router-link-active">Contact</a></li>
-                                              <li><a [routerLink]="['../faq']" routerLinkActive="router-link-active">FAQ</a></li>
-                                              <li><a [routerLink]="['../sponsor']" routerLinkActive="router-link-active">sponsor</a></li>
-                                          </ul>
-                                      </nav>
-                                  </div>
-                              </div>
-                              <div class="col-xl-2 col-lg-2 d-none d-lg-block">
-                                  <div class="buy_tkt">
-                                      <div class="book_btn d-none d-md-block">
-                                          <a href="#">Grab Passes</a>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="col-12">
-                                  <div class="mobile_menu d-block d-lg-none"></div>
-                              </div>
-                          </div>
-                      </div>
 
-                  <!-- </div> -->
-              </div>
-          </div>
-      </header>
-      <!-- header-end -->
-    </div>
+                                        <li><a [routerLink]="['../event']" routerLinkActive="router-link-active">Events <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a [routerLink]="['../event']" routerLinkActive="router-link-active">Events</a></li>
+                                                <li><a [routerLink]="['../schedule']" routerLinkActive="router-link-active">Schedule</a></li>
+                                                <li><a [routerLink]="['../eventgallery']" routerLinkActive="router-link-active">Event Gallery</a></li>
+                                            </ul>
+                                        </li>
+
+                                        <li><a [routerLink]="['../aboutus']" routerLinkActive="router-link-active">About us <i class="ti-angle-down"></i></a>
+                                            <ul class="submenu">
+                                                <li><a [routerLink]="['../team']" routerLinkActive="router-link-active">Team member</a></li>
+                                                <li><a [routerLink]="['../brocher']" routerLinkActive="router-link-active">Brocher</a></li>
+                                                <li><a [routerLink]="['../aftermovie']" routerLinkActive="router-link-active">After Movies</a></li>
+                                                <!-- <li><a href="elements.html">elements</a></li> -->
+                                            </ul>
+                                        </li>
+                                        <li><a [routerLink]="['../contactus']" routerLinkActive="router-link-active">Contact</a></li>
+                                        <li><a [routerLink]="['../faq']" routerLinkActive="router-link-active">FAQ</a></li>
+                                        <li><a [routerLink]="['../sponsor']" routerLinkActive="router-link-active">sponsor</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
+                            <div class="buy_tkt">
+                                <div class="book_btn d-none d-md-block">
+                                    <a [routerLink]="['../grabpass']" routerLinkActive="router-link-active">Grab Passes</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="mobile_menu d-block d-lg-none"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- </div> -->
+            </div>
+        </div>
+    </header>
+    <!-- header-end -->
+</div>

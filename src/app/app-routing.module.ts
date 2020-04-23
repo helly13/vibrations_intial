@@ -15,6 +15,7 @@ import { EventgalleryComponent } from "./eventgallery/eventgallery.component";
 import { ScheduleComponent } from "./schedule/schedule.component";
 import { FaqComponent } from "./faq/faq.component";
 import { SponsorComponent } from "./sponsor/sponsor.component";
+import { GrabpassComponent } from "./grabpass/grabpass.component";
 
 const routes: Routes = [
 
@@ -22,7 +23,7 @@ const routes: Routes = [
   {path:"performer",component:PerformerComponent},
   {path:"header",component:HeaderComponent},
   {path:"footer",component:FooterComponent},
-  {path:"contact",component:ContactComponent},
+  {path:"contactus",component:ContactComponent},
   {path:"venue",component:VenueComponent},
   {path:"aboutus",component:AboutusComponent},
   {path:"team",component:TeamComponent},
@@ -33,6 +34,8 @@ const routes: Routes = [
   {path:"schedule",component:ScheduleComponent},
   {path:"faq",component:FaqComponent},
   {path:"sponsor",component:SponsorComponent},
+  {path:"grabpass",component:GrabpassComponent},
+
 
 
 

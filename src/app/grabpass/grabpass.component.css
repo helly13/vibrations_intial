@@ -1,4 +1,8 @@
-.section_title h3 {
+.section-with-bg {
+    background-image: url("../../assets/img/banner/banner.png");
+}
+
+.section-header h2 {
     font-size: 60px;
     font-weight: 400;
     color: #fff;
@@ -6,5 +10,4 @@
     z-index: 0;
     font-family: "Anton", sans-serif;
     padding-bottom: 7px;
-    letter-spacing: 10px;
 }
