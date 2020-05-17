@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { EvntService } from "../services/evnt.service";
+
+
 // declare const teamfun:any;
 
 @Component({
@@ -9,10 +12,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeamComponent implements OnInit {
 
-  constructor() { }
+  team:any[]=[];
+  i:number=0;
+
+  constructor(private evnt_ser:EvntService) { }
 
   ngOnInit(): void {
-    // teamfun();
+    this.evnt_ser.getEventTeam().subscribe(
+      (data:any[])=>{
+        // console.log(data);
+        while(this.i<data.length)
+        {
+          this.team.push(data[this.i]);
+          this.i=this.i+1;
+        }
+        console.log(this.team);
+
+      }
+    );
   }
 
 }

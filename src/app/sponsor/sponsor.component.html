@@ -32,13 +32,13 @@
 
         <div class="row no-gutters sponsors-wrap clearfix">
 
-            <div class="col-lg-3 col-md-4 col-xs-6">
+            <div class="col-lg-3 col-md-4 col-xs-6" *ngFor="let item of sponsor_list">
                 <div class="sponsor-logo">
-                    <img src="../assets/img/sponsors/1.png" class="img-fluid" alt="">
+                    <img src="http://localhost:3000/{{item.Image}}" class="img-fluid" alt="">
                 </div>
             </div>
 
-            <div class="col-lg-3 col-md-4 col-xs-6">
+            <!-- <div class="col-lg-3 col-md-4 col-xs-6">
                 <div class="sponsor-logo">
                     <img src="assets/img/sponsors/2.png" class="img-fluid" alt="">
                 </div>
@@ -78,7 +78,7 @@
                 <div class="sponsor-logo">
                     <img src="assets/img/sponsors/8.png" class="img-fluid" alt="">
                 </div>
-            </div>
+            </div> -->
 
         </div>
 

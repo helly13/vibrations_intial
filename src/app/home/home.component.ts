@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   center:google.maps.LatLngLiteral;
 
+  panelOpenState :boolean= false;
+
   faq_list:Faq[]=[];
   email:string;
   que:string;
@@ -25,12 +27,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    navigator.geolocation.getCurrentPosition(x=>{
-      this.center={
-        lat:x.coords.latitude,
-        lng:x.coords.longitude
-      };
-    })
+    // navigator.geolocation.getCurrentPosition(x=>{
+    //   this.center={
+    //     lat:x.coords.latitude,
+    //     lng:x.coords.longitude
+    //   };
+    // })
 
     this.faq_ser.getFaqList().subscribe(
       (data:any[])=>{
@@ -43,23 +45,24 @@ export class HomeComponent implements OnInit {
   }
 
 
+  onSubmit()
+  {
+    // console.log(this.email);
+    // console.log(this.que);
+    // console.log(item);
 
-   onSubmit()
+    this.faq_ser.addFaq_que({"email":this.email,"Query_String":this.que}).subscribe(
+      (data:any)=>{
+        console.log(data);
+      }
+    );
+
+    this.onfaqReset();
+  }
+
+  onfaqReset()
    {
-     // console.log(this.email);
-     // console.log(this.que);
-     // console.log(item);
-
-     this.faq_ser.addFaq_que({"email":this.email,"Query_String":this.que}).subscribe(
-       (data:any)=>{
-         console.log(data);
-       }
-     );
-      this.onfaqReset();
-   }
-
-   onfaqReset()
-   {
+    //  console.log( "faqreset");
      this.email="";
      this.que="";
    }

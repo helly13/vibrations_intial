@@ -1,0 +1,35 @@
+<div class="bg">
+    <br><br><br>
+    <div class="container">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Applying For Volunteer</mat-card-title>
+                <mat-card-subtitle>{{Event_Name}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="row">
+                    <div class="col-6">
+
+                        <form class="example-form" (ngSubmit)="onClickApply()" #f="ngForm" name="Volunteer_form">
+                            <mat-form-field class="example-full-width example-margin">
+                                <input matInput name="Experience" ngModel #exp="ngModel" required placeholder="Experience" [(ngModel)]="Experience">
+                                <mat-error *ngIf="exp?.hasError('required')">
+                                    Experience is required.
+                                </mat-error>
+                            </mat-form-field>
+
+                            <br><br>
+                            <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid ">Apply</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button mat-raised-button color="warn" (click)="onclickBack()">Back</button>
+
+                        </form>
+                    </div>
+                    <div class="col-6">
+                        <p>{{Volunteer_Status}}</p>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <br><br><br>
+</div>

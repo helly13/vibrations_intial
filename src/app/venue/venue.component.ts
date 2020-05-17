@@ -9,6 +9,7 @@ export class VenueComponent implements OnInit {
 
   constructor() { }
 
+  panelOpenState:boolean=false;
   ngOnInit(): void {
   }
 

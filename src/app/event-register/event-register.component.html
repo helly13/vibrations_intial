@@ -1,0 +1,136 @@
+<div class="bg">
+    <br><br><br>
+    <div class="container">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>Event Registration Form</mat-card-title>
+                <mat-card-subtitle>{{Event_Name}}</mat-card-subtitle>
+            </mat-card-header>
+            <p style="text-align: center;">
+                <a href="{{pdf_file}}">Click Here for Rules</a>
+                <!-- <pdf-viewer [src]="pdf_file" [render-text]="true" [show-all]="false" style="display: block;">
+                </pdf-viewer> -->
+            </p>
+            <mat-card-content>
+                <form #eventregform="ngForm" (ngSubmit)="saveDetails(eventregform)">
+                    <div class="row ">
+                        <div class="col-6 ">
+                            <div class="form-group" style="margin: 10px;">
+                                <!-- <mat-form-field class="example-full-width example-margin"> -->
+                                <input placeholder="Name" (keypress)="onKeyPressText($event)" #name="ngModel" name="Name " [(ngModel)]="Name " type="text " class="form-control " required>
+                                <mat-error *ngIf="name.hasError( 'required') && name.touched ">
+                                    Name is required.
+                                </mat-error>
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <div class="form-group" style="margin: 10px;">
+                                <!-- <mat-form-field class="example-full-width example-margin"> -->
+                                <input placeholder="Email_id" #emaill="ngModel" name="Email_id" [(ngModel)]="Email_id" type="email" class="form-control" email required>
+                                <mat-error *ngIf="emaill.hasError( 'required') && emaill.touched ">
+                                    Email ID is required.
+                                </mat-error>
+                                <mat-error *ngIf="emaill.hasError('email')">
+                                    Email id is invalid.
+                                </mat-error>
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row ">
+                        <div class="col-6 ">
+                            <div class="form-group" style="margin: 10px;">
+                                <!-- <mat-form-field class="example-full-width example-margin"> -->
+                                <input placeholder="Mobile Number" (keypress)="onKeyPressNumber($event)" #mob="ngModel" name="Mobile" [(ngModel)]="Mobile" type="tel" class="form-control " required required minlength="10">
+                                <mat-error *ngIf="mob.hasError( 'required') && mob.touched ">
+                                    Mobile Number is required.
+                                </mat-error>
+                                <mat-error *ngIf="mob.hasError( 'minlength')">
+                                    Mobile Number is Invalid.
+                                </mat-error>
+                                <!-- <mat-error *ngIf="mob.value.length>=11">
+                                    Mobile Number is Invalid.
+                                </mat-error> -->
+                                <!-- <p>{{mob.value.length}}</p> -->
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <div class="form-group" style="margin: 10px;">
+                                <!-- <mat-form-field class="example-full-width example-margin"> -->
+                                <input placeholder="College Name" (keypress)="onKeyPressText($event)" #clg="ngModel" name="Colleage_Name " [(ngModel)]="Colleage_Name " type="text " class="form-control " required>
+                                <mat-error *ngIf="clg.hasError( 'required') && clg.touched ">
+                                    College Name is required.
+                                </mat-error>
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row " *ngIf="team_flag">
+                        <div class="col-6 ">
+                            <div class="form-group" style="margin: 10px;">
+                                <!-- <mat-form-field class="example-full-width example-margin"> -->
+                                <input placeholder="Team Name" #team="ngModel" name="Team_Name" [(ngModel)]="Team_Name" type="text" class="form-control " required>
+                                <mat-error *ngIf="team.hasError( 'required') && team.touched ">
+                                    Team Name is required.
+                                </mat-error>
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div>
+                        <div class="col-6 ">
+                            <div class="form-group" style="margin: 10px;">
+                                <!-- <mat-form-field class="example-full-width example-margin"> -->
+                                <input placeholder="Team Size" (keypress)="onKeyPressNumber($event)" #tsize="ngModel" name="Team_Size " [(ngModel)]="Team_Size " type="number" class="form-control " required>
+                                <mat-error *ngIf="tsize.hasError( 'required') && tsize.touched ">
+                                    Team size is required.
+                                </mat-error>
+                                <!-- </mat-form-field> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <mat-checkbox color="primary" name="Rules_check" [(ngModel)]="Rules_check" #rulechk="ngModel"> I Read all the Rules and I agree to all the terms and condition for this event.</mat-checkbox>
+                        </div>
+                        <div class="col-6">
+                            <mat-error *ngIf="rulechk.touched && !rulechk.value">
+                                Please accept the Rules and Go ahead.
+                            </mat-error>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="col-5"></div>
+                        <div class="col-3">
+                            <!-- <p>{{eventregform.valid}}</p> -->
+                            <!-- <p>{{rulechk.value}}</p> -->
+                            <div *ngIf="!(eventregform.valid && rulechk.value)">
+                                <button mat-raised-button color="primary" disabled>Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button mat-raised-button color="warn" (click)="onBack()">Back</button>
+
+                            </div>
+                            <div *ngIf="eventregform.valid && rulechk.value">
+                                <button mat-raised-button color="primary" (click)="onRegister()">Register</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <button mat-raised-button color="warn" (click)="onBack()">Back</button>
+
+                            </div>
+                        </div>
+                        <div class="col-4"></div>
+
+                    </div>
+                </form>
+
+            </mat-card-content>
+            <!-- <mat-card-actions>
+        <button mat-button>LIKE</button>
+        <button mat-button>SHARE</button>
+      </mat-card-actions> -->
+        </mat-card>
+    </div>
+    <br><br><br>
+</div>

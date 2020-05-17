@@ -13,6 +13,8 @@ import { FaqService } from "../services/faq.service";
 })
 export class FaqComponent implements OnInit {
 
+  panelOpenState :boolean= false;
+
   faq_list:Faq[]=[];
   email:string;
   que:string;
@@ -55,14 +57,6 @@ export class FaqComponent implements OnInit {
      this.que="";
    }
 
-  // resetForm(form?:NgForm)
-  // {
-  //   if(form)
-  //   {
-  //     form.reset();
-
-  //   }
-  // }
 
 }
 

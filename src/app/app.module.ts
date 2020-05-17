@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import {NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { PdfViewerModule } from "ng2-pdf-viewer";
 
 import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { YouTubePlayerModule } from "@angular/youtube-player";
@@ -27,7 +29,17 @@ import { SponsorComponent } from './sponsor/sponsor.component';
 import { GrabpassComponent } from './grabpass/grabpass.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from "@angular/material/form-field";
-
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatInputModule} from '@angular/material/input';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { EventRegisterComponent } from './event-register/event-register.component';
+import {MatStepperModule} from '@angular/material/stepper';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatCardModule} from '@angular/material/card';
+import { VolunteerComponent } from './volunteer/volunteer.component';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
@@ -49,6 +61,9 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     FaqComponent,
     SponsorComponent,
     GrabpassComponent,
+    EventRegisterComponent,
+    VolunteerComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +76,19 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatExpansionModule,
+    MatInputModule,
+    MatAutocompleteModule,
+    MatStepperModule,
+    MatButtonModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatCardModule,
+    NgxExtendedPdfViewerModule,
+    PdfViewerModule
+
+
 
   ],
   providers: [],

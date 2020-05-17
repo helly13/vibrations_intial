@@ -30,23 +30,28 @@
             <div class="container">
 
                 <!-- <div class="section-header">
-          <h2>F.A.Q </h2>
-        </div> -->
+      <h2>F.A.Q </h2>
+    </div> -->
 
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
                         <ul id="faq-list">
 
                             <div *ngFor="let item of faq_list">
-                                <li *ngIf="item.ans_status=='1' && item.status=='1'">
-                                    <a data-toggle="collapse" class="collapsed" href="#faq1">{{item.Query_String}}<i class="fa fa-minus-circle"></i></a>
+                                <div *ngIf="item.ans_status=='1' && item.status=='1'">
+                                    <li>
+                                        <mat-expansion-panel>
+                                            <mat-expansion-panel-header>
+                                                <mat-panel-title>
+                                                    {{item.Query_String}}
+                                                </mat-panel-title>
+                                            </mat-expansion-panel-header>
+                                            <mat-label>{{item.reply_string}}</mat-label>
+                                        </mat-expansion-panel>
+                                    </li>
 
-                                    <div id="faq1" class="collapse" data-parent="#faq-list">
-                                        <p>
-                                            {{item.reply_string}}
-                                        </p>
-                                    </div>
-                                </li>
+                                </div>
+
                             </div>
                         </ul>
                     </div>
@@ -55,56 +60,56 @@
         </section>
 
     </div>
-    <div class="col-6">
-        <div class="row" style="margin-right:60px;margin-top:80px;">
+    <div class="col-6 ">
+        <div class="row " style="margin-right:60px;margin-top:80px; ">
             <form>
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group">
-                            <textarea class="form-control w-100" name="que" id="message" cols="30" rows="5+" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your query'" placeholder=" Enter you query" [(ngModel)]="que"></textarea>
+                <div class="row ">
+                    <div class="col-12 ">
+                        <div class="form-group ">
+                            <textarea class="form-control w-100 " name="que " id="message " cols="30 " rows="5+ " onfocus="this.placeholder='' " onblur="this.placeholder='Enter your query' " placeholder=" Enter you query " [(ngModel)]="que "></textarea>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="form-group">
-                            <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email" [(ngModel)]="email">
+                    <div class="col-12 ">
+                        <div class="form-group ">
+                            <input class="form-control valid " name="email " id="email " type="email " onfocus="this.placeholder='' " onblur="this.placeholder='Enter email address' " placeholder="Email " [(ngModel)]="email ">
                         </div>
                     </div>
                 </div>
-                <div class="form-group mt-3">
-                    <button type="submit" class="button button-contactForm boxed-btn" (click)="onSubmit()">Send</button>
+                <div class="form-group mt-3 ">
+                    <button type="submit " class="button button-contactForm boxed-btn " (click)="onSubmit() ">Send</button>
                 </div>
             </form>
         </div>
     </div>
 
 
-    <!-- <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
-                      <div class="row">
-                          <div class="col-12">
-                              <div class="form-group">
-                                  <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
-                              </div>
-                          </div>
-                          <div class="col-sm-6">
-                              <div class="form-group">
-                                  <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
-                              </div>
-                          </div>
-                          <div class="col-sm-6">
-                              <div class="form-group">
-                                  <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                              </div>
-                          </div>
-                          <div class="col-12">
-                              <div class="form-group">
-                                  <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                              </div>
+    <!-- <form class="form-contact contact_form " action="contact_process.php " method="post " id="contactForm " novalidate="novalidate ">
+                  <div class="row ">
+                      <div class="col-12 ">
+                          <div class="form-group ">
+                              <textarea class="form-control w-100 " name="message " id="message " cols="30 " rows="9 " onfocus="this.placeholder='' " onblur="this.placeholder='Enter Message' " placeholder=" Enter Message "></textarea>
                           </div>
                       </div>
-                      <div class="form-group mt-3">
-                          <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                      <div class="col-sm-6 ">
+                          <div class="form-group ">
+                              <input class="form-control valid " name="name " id="name " type="text " onfocus="this.placeholder='' " onblur="this.placeholder='Enter your name' " placeholder="Enter your name ">
+                          </div>
                       </div>
-                  </form> -->
+                      <div class="col-sm-6 ">
+                          <div class="form-group ">
+                              <input class="form-control valid " name="email " id="email " type="email " onfocus="this.placeholder='' " onblur="this.placeholder='Enter email address' " placeholder="Email ">
+                          </div>
+                      </div>
+                      <div class="col-12 ">
+                          <div class="form-group ">
+                              <input class="form-control " name="subject " id="subject " type="text " onfocus="this.placeholder='' " onblur="this.placeholder='Enter Subject' " placeholder="Enter Subject ">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group mt-3 ">
+                      <button type="submit " class="button button-contactForm boxed-btn ">Send</button>
+                  </div>
+              </form> -->
 </div>
 
 

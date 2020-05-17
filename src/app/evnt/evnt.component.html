@@ -22,65 +22,68 @@
 
 
 <div class="row" style="background-color: black;">
-    <div class="col-md-3">
-        <div class="fancy-cards">
-            <div class="fancy-card">
-                <div class="top">
-                    <div class="caption">
-                        <h3 class="title">Beautiful Summer</h3>
-                        <a href="" class="button">Find Out </a>
+    <div class=" col-md-4 " *ngFor="let item of sub_events ">
+        <div class="fancy-cards ">
+            <div class="fancy-card ">
+                <div class="top ">
+                    <!-- <label>{{item.image}}</labe l> -->
+                    <img src='http://localhost:3000/{{item.image}}'>
+                    <div class="caption ">
+                        <h3 class="title ">{{item.Event_name}}</h3>
+                        <a style="cursor: pointer;" class="button" (click)="onEventReg(item.Event_name)"> Register </a><br><br>
+                        <a style="cursor: pointer;color:red;" (click)=" onVolunteer(item.Event_name)"> Apply for Volunteer </a>
                     </div>
                 </div>
-                <div class="middle"></div>
-                <div class="bottom"></div>
+                <div class="middle "></div>
+                <div class="bottom "></div>
             </div>
         </div>
 
     </div>
 
-    <div class="col-md-3">
-        <div class="fancy-cards">
-            <div class="fancy-card">
-                <div class="top">
-                    <div class="caption">
-                        <h3 class="title">Beautiful Summer</h3>
-                        <a href="" class="button">Find Out </a>
+    <!-- <div class="col-md-3 ">
+        <div class="fancy-cards ">
+            <div class="fancy-card ">
+                <div class="top ">
+                    <div class="caption ">
+                        <h3 class="title ">Beautiful Summer</h3>
+                        <a href=" " class="button ">Find Out </a>
                     </div>
                 </div>
-                <div class="middle"></div>
-                <div class="bottom"></div>
+                <div class="middle "></div>
+                <div class="bottom "></div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="fancy-cards">
-            <div class="fancy-card">
-                <div class="top">
-                    <div class="caption">
-                        <h3 class="title">Beautiful Summer</h3>
-                        <a href="" class="button">Find Out </a>
+    <div class="col-md-3 ">
+        <div class="fancy-cards ">
+            <div class="fancy-card ">
+                <div class="top ">
+                    <div class="caption ">
+                        <h3 class="title ">Beautiful Summer</h3>
+                        <a href=" " class="button ">Find Out </a>
                     </div>
                 </div>
-                <div class="middle"></div>
-                <div class="bottom"></div>
+                <div class="middle "></div>
+                <div class="bottom "></div>
             </div>
         </div>
     </div>
 
-    <div class="col-md-3">
-        <div class="fancy-cards">
-            <div class="fancy-card">
-                <div class="top">
-                    <div class="caption">
-                        <h3 class="title">Beautiful Summer</h3>
-                        <a href="" class="button">Find Out </a>
+    <div class="col-md-3 ">
+        <div class="fancy-cards ">
+            <div class="fancy-card ">
+                <div class="top ">
+                    <div class="caption ">
+                        <h3 class="title ">Beautiful Summer</h3>
+                        <a href=" " class="button ">Find Out </a>
                     </div>
                 </div>
-                <div class="middle"></div>
-                <div class="bottom"></div>
+                <div class="middle "></div>
+                <div class="bottom "></div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>

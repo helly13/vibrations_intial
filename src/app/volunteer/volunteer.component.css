@@ -1,0 +1,32 @@
+.bg {
+    background-image: url("../../assets/img/banner/banner.png");
+}
+
+form {
+    font-size: 15px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-margin {
+    margin: 0 10px;
+}
+
+.container {
+    margin-top: 80px;
+    /* background-color: rgba(255, 2550, 255, 0.5); */
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
