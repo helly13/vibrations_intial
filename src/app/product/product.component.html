@@ -1,0 +1,43 @@
+<div class="bg" style="background-color: black;">
+    <br><br><br><br>
+    <div class="row">
+        <div class="col-6" *ngFor="let item of Product_List">
+            <figure class="snip1224">
+                <h4>{{item.title}}</h4>
+                <div class="image">
+                    <img src="http://localhost:3000/{{item.image}}" alt="sq-sample17" /></div>
+                <div class="rating">{{item.description}}</div>
+                <figcaption>
+                    <p>Order here and collect it from college in person.Date and Time will be shared with you.</p>
+                    <div class="price">
+                        ₹{{item.price}}
+                    </div>
+                </figcaption>
+                <a href="#" class="add-to-cart">Click here if you're intrested</a>
+                <div *ngIf="interesed_flag">
+                    <a href="#" class="add-to-cart">Intrested</a>
+                </div>
+
+            </figure>
+
+        </div>
+        <!-- <div class="col-6">
+            <figure class="snip1224">
+                <h4>Casual Top</h4>
+                <div class="image">
+                    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sq-sample17.jpg" alt="sq-sample17" /></div>
+                <div class="rating">Casual Top</div>
+                <figcaption>
+                    <p>Order here and collect it from college in person.Date and Time will be shared with you.</p>
+                    <div class="price">
+                        <s>$24.00</s>
+                        ₹19.00
+                    </div>
+                </figcaption>
+                <a href="#" class="add-to-cart">Order Now</a>
+            </figure>
+
+        </div> -->
+    </div>
+
+</div>

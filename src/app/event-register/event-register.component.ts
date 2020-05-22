@@ -38,6 +38,8 @@ export class EventRegisterComponent implements OnInit {
   Event_Details:any[]=[];
   pdf_file:any;
   team_flag:boolean=false;
+  already_participated:any = "You have already participated in this event";
+  successfully_participated:any="Your participation request is sucessfully accepted";
 
   constructor(private _formBuilder: FormBuilder,private act_router:ActivatedRoute,private _router:Router,private evnt_ser:EvntService) { }
 
@@ -98,6 +100,28 @@ export class EventRegisterComponent implements OnInit {
     this.evnt_ser.eventRegisteration(new participants(this.Event_Name,this.Email_id,this.Colleage_Name,this.Mobile)).subscribe(
       (data:any[])=>{
         console.log(data);
+        if(data==this.already_participated)
+        {
+          alert("You have already participated in this event");
+          this.Event_Name="";
+          this.Email_id="";
+          this.Colleage_Name="";
+          this.Team_Name="";
+          this.Team_Size=0;
+          this.Rules_check=false;
+
+        }
+        if(data==this.successfully_participated)
+        {
+          alert("Your participation request is sucessfully accepted");
+          this.Event_Name="";
+          this.Email_id="";
+          this.Colleage_Name="";
+          this.Team_Name="";
+          this.Team_Size=0;
+          this.Rules_check=false;
+        }
+
       }
     );
   }

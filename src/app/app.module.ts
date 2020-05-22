@@ -40,6 +40,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatCardModule} from '@angular/material/card';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { LoginComponent } from './login/login.component';
+import { ProductComponent } from './product/product.component';
 
 
 @NgModule({
@@ -64,6 +65,7 @@ import { LoginComponent } from './login/login.component';
     EventRegisterComponent,
     VolunteerComponent,
     LoginComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,

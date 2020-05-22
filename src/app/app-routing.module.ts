@@ -18,6 +18,7 @@ import { SponsorComponent } from "./sponsor/sponsor.component";
 import { GrabpassComponent } from "./grabpass/grabpass.component";
 import { EventRegisterComponent } from "./event-register/event-register.component";
 import { VolunteerComponent } from "./volunteer/volunteer.component";
+import { ProductComponent } from "./product/product.component";
 
 const routes: Routes = [
 
@@ -38,7 +39,8 @@ const routes: Routes = [
   {path:"sponsor",component:SponsorComponent},
   {path:"grabpass",component:GrabpassComponent},
   {path:"eventreg/:name",component:EventRegisterComponent},
-  {path:"volunteer/:name",component:VolunteerComponent}
+  {path:"volunteer/:name",component:VolunteerComponent},
+  {path:"product",component:ProductComponent}
 
 ];
 
