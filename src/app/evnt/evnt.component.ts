@@ -20,6 +20,7 @@ export class EvntComponent implements OnInit {
   event_list:Evnt[]=[];
   sub_events:any[]=[];
   event_name:any[]=[];
+  dd:any;
   i:number=0;
   ngOnInit(): void {
     this.showEvents();

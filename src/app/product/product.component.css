@@ -9,6 +9,7 @@ figure.snip1224 {
     overflow: hidden;
     margin: 15px;
     min-width: 550px;
+    min-height: 260px;
     max-width: 630px;
     max-height: 260px;
     width: 100%;

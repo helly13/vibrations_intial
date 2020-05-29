@@ -84,7 +84,7 @@ export class EventRegisterComponent implements OnInit {
   onKeyPressNumber(event:any)
   {
     // console.log(event);
-    if(event.charCode>=48 && event.charCode<57)
+    if(event.charCode>=48 && event.charCode<=57)
     {
 
     }
@@ -103,23 +103,12 @@ export class EventRegisterComponent implements OnInit {
         if(data==this.already_participated)
         {
           alert("You have already participated in this event");
-          this.Event_Name="";
-          this.Email_id="";
-          this.Colleage_Name="";
-          this.Team_Name="";
-          this.Team_Size=0;
-          this.Rules_check=false;
-
+         this._router.navigate(["/event"]);
         }
         if(data==this.successfully_participated)
         {
           alert("Your participation request is sucessfully accepted");
-          this.Event_Name="";
-          this.Email_id="";
-          this.Colleage_Name="";
-          this.Team_Name="";
-          this.Team_Size=0;
-          this.Rules_check=false;
+          this._router.navigate(["/event"]);
         }
 
       }

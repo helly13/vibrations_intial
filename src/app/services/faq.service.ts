@@ -14,21 +14,28 @@ export class FaqService {
   // selectedFaq:Faq; //to design form
   // faqarr:Faq[];    //for mongodb
 
-  private url="http://localhost:3000/faq/";
-  // private qry_url="http://localhost:3000/faq_que/";
-  // private feed_url="http://localhost:3000/faq_feed/"
+  private faq_url="http://localhost:3000/faq/";
+  private feedback_url="http://localhost:3000/feedback";
   constructor(private _http:HttpClient) { }
 
 
   getFaqList()
   {
-    return this._http.get(this.url);
+    return this._http.get(this.faq_url);
   }
+
   addFaq_que(item:any){
     console.log(item);
     let _head=new HttpHeaders().set('Content-Type','application/json');
     let body=JSON.stringify(item);
-    return this._http.post(this.url,body,{headers:_head});
+    return this._http.post(this.faq_url,body,{headers:_head});
+}
+
+addFeedback(item:any){
+  console.log(item);
+  let _head=new HttpHeaders().set('Content-Type','application/json');
+  let body=JSON.stringify(item);
+  return this._http.post(this.feedback_url,body,{headers:_head});
 }
 
 }

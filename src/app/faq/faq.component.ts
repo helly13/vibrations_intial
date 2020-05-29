@@ -16,8 +16,8 @@ export class FaqComponent implements OnInit {
   panelOpenState :boolean= false;
 
   faq_list:Faq[]=[];
-  email:string;
-  que:string;
+  Email_id:string;
+  Question_asked:string;
 
   constructor(private faq_ser:FaqService) { }
 
@@ -41,22 +41,27 @@ export class FaqComponent implements OnInit {
     // console.log(this.que);
     // console.log(item);
 
-    this.faq_ser.addFaq_que({"email":this.email,"Query_String":this.que}).subscribe(
+    this.faq_ser.addFaq_que({"email":this.Email_id,"Query_String":this.Question_asked}).subscribe(
       (data:any)=>{
         console.log(data);
       }
     );
 
+    alert("Your Question Successfully Submitted");
     this.onfaqReset();
   }
 
   onfaqReset()
    {
     //  console.log( "faqreset");
-     this.email="";
-     this.que="";
+     this.Email_id="";
+     this.Question_asked="";
    }
 
+   saveDetails(NgForm)
+   {
+
+   }
 
 }
 

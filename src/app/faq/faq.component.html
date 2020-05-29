@@ -62,23 +62,34 @@
     </div>
     <div class="col-6 ">
         <div class="row " style="margin-right:60px;margin-top:80px; ">
-            <form>
+            <form #faqform="ngForm" (ngSubmit)="saveDetails(faqform)">
                 <div class="row ">
                     <div class="col-12 ">
                         <div class="form-group ">
-                            <textarea class="form-control w-100 " name="que " id="message " cols="30 " rows="5+ " onfocus="this.placeholder='' " onblur="this.placeholder='Enter your query' " placeholder=" Enter you query " [(ngModel)]="que "></textarea>
+                            <!-- <input placeholder="Name" (keypress)="onKeyPressText($event)" #name="ngModel" name="Name " [(ngModel)]="Name " type="text " class="form-control " required> -->
+                            <textarea class="form-control w-100 " name="Question_asked" #que="ngModel" [(ngModel)]="Question_asked" cols="30 " rows="5" placeholder=" Enter you Query " required></textarea>
+                            <mat-error *ngIf="que.hasError( 'required') && que.touched ">
+                                Please write the Question.
+                            </mat-error>
                         </div>
                     </div>
                     <div class="col-12 ">
                         <div class="form-group ">
-                            <input class="form-control valid " name="email " id="email " type="email " onfocus="this.placeholder='' " onblur="this.placeholder='Enter email address' " placeholder="Email " [(ngModel)]="email ">
+                            <input placeholder="Email_id" #emaill="ngModel" name="Email_id" [(ngModel)]="Email_id" type="email" class="form-control" email required>
+                            <mat-error *ngIf="emaill.hasError( 'required') && emaill.touched ">
+                                Email ID is required.
+                            </mat-error>
+                            <mat-error *ngIf="emaill.hasError('email')">
+                                Email id is invalid.
+                            </mat-error>
                         </div>
                     </div>
                 </div>
                 <div class="form-group mt-3 ">
-                    <button type="submit " class="button button-contactForm boxed-btn " (click)="onSubmit() ">Send</button>
+                    <button mat-stroked-button color="warn" type="submit " style="width: 100px;" [disabled]="!(faqform.valid)" (click)="onSubmit()">Send</button>
                 </div>
             </form>
+
         </div>
     </div>
 

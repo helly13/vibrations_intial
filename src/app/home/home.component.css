@@ -1,3 +1,37 @@
+.googlemap {
+    padding: 10px;
+}
+
+.feedback_bg {
+    padding: 60px;
+    background: url("../../assets/img/banner/banner.png") center center no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn {
+    background: #f82249;
+    border: 0;
+    padding: 10px 40px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+/* .feedback li {
+    display: inline;
+} */
+
+span {
+    color: white;
+    font-size: 15px;
+    font-style: italic;
+    padding: 20px;
+}
+
 .mat-form-field+.mat-form-field {
     margin-left: 8px;
 }

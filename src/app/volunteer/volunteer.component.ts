@@ -55,6 +55,10 @@ export class VolunteerComponent implements OnInit {
         {
           alert("You have reached to maximun limit of Application");
         }
+        else
+        {
+          alert("We have received your volunteer application");
+        }
       }
     );
   }

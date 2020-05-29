@@ -116,7 +116,7 @@
                         <img src="../assets/img/shape/shape_3.svg" alt="">
                     </div>
                     <div class="thumb_inner  wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-                        <img src="../assets/img/about/about.png" alt="">
+                        <img src="../assets/img/about/about.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -209,67 +209,69 @@
 </div>
 
 <!-- map_area_start  -->
-<div class="map_area">
-    <div id="map" style="padding:30px 0px 0px 0px; height: 600px; position: relative; overflow: hidden;">
-        <!-- <google-map height="500px" width="100%" [center]="center"></google-map> -->
-    </div>
-
-    <!-- <script>
-      function initMap() {
-          var uluru = {
-              lat: -25.363,
-              lng: 131.044
-          };
-          var grayStyles = [{
-                  featureType: "all",
-                  stylers: [{
-                          saturation: -90
-                      },
-                      {
-                          lightness: 50
-                      }
-                  ]
-              },
-              {
-                  elementType: 'labels.text.fill',
-                  stylers: [{
-                      color: '#ccdee9'
-                  }]
-              }
-          ];
-          var map = new google.maps.Map(document.getElementById('map'), {
-              center: {
-                  lat: -31.197,
-                  lng: 150.744
-              },
-              zoom: 9,
-              styles: grayStyles,
-              scrollwheel: false
-          });
-      }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&amp;callback=initMap">
-  </script> -->
-    <!-- <div class="location_information black_bg wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">
-      <h3>Concert 2020</h3>
-      <div class="info_wrap">
-          <div class="single_info">
-              <span>Vanue:</span>
-              <p>26/A, Coontum Avenu
-                  New York-2783</p>
-          </div>
-          <div class="single_info">
-              <span>Phone:</span>
-              <p>+10 (88) 267 368 283</p>
-          </div>
-          <div class="single_info">
-              <span>Email:</span>
-              <p>contact@concert20.com</p>
-          </div>
-      </div>
-  </div> -->
+<div class="googlemap">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14238.1706790926!2d75.8283469!3d26.8544946!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xaaf1af30990235b7!2sBirla%20Institute%20of%20Technology%20Mesra%2C%20Jaipur%20Campus!5e0!3m2!1sen!2sin!4v1590694650647!5m2!1sen!2sin"
+        width="1350" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 </div>
 <!-- map_area_end  -->
+
+
+
+<!-- ======= Feedback Section ======= -->
+<section class="feedback_bg">
+    <div class="container wow fadeInUp">
+        <div class="section-header">
+            <h2 style="color: white;">Feedback</h2>
+            <!-- <p>Rerum numquam illum recusandae quia mollitia consequatur.</p> -->
+        </div>
+
+        <div class="row">
+            <div *ngFor="let item of feedback_list" class="col-md-4" style="padding: 10px;">
+                <span *ngIf="item.status=='0'">
+                " {{item.Query_String}} "
+                </span>
+            </div>
+        </div>
+
+        <br><br>
+
+        <form #feedbackform="ngForm">
+            <div class="row ">
+                <div class="col-6 ">
+                    <div class="form-group ">
+                        <!-- <input placeholder="Name" (keypress)="onKeyPressText($event)" #name="ngModel" name="Name " [(ngModel)]="Name " type="text " class="form-control " required> -->
+                        <input class="form-control w-100 " name="Feedback_String" #feed="ngModel" [(ngModel)]="Feedback_String" placeholder=" Enter you feedback " required>
+                        <mat-error *ngIf="feed.hasError( 'required') && feed.touched ">
+                            Please write the Feedback.
+                        </mat-error>
+                    </div>
+                </div>
+                <div class="col-6 ">
+                    <div class="form-group ">
+                        <input placeholder="Email_id" #emaill="ngModel" name="Feedback_Email_id" [(ngModel)]="Feedback_Email_id" type="email" class="form-control" email required>
+                        <mat-error *ngIf="emaill.hasError( 'required') && emaill.touched ">
+                            Email ID is required.
+                        </mat-error>
+                        <mat-error *ngIf="emaill.hasError('email')">
+                            Email id is invalid.
+                        </mat-error>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <button mat-stroked-button color="warn" class="btn" [disabled]="!(feedbackform.valid)" (click)="onSubmitFeedback()">Send Message</button>
+                <!-- <button mat-stroked-button color="warn" type="submit " style="width: 100px;" [disabled]="!(feedform.valid)" (click)="onSubmitFeedback()">Send</button> -->
+            </div>
+        </form>
+
+
+    </div>
+</section>
+<!-- End Feedback Section -->
+
+<!-- ======= Buy Ticket Section ======= -->
+
+
 
 
 <!-- =======  F.A.Q Section ======= -->
@@ -277,17 +279,10 @@
 <div class="row">
     <div class="col-6">
         <section id="faq" class="wow fadeInUp">
-
             <div class="container">
-
-                <!-- <div class="section-header">
-        <h2>F.A.Q </h2>
-      </div> -->
-
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
                         <ul id="faq-list">
-
                             <div *ngFor="let item of faq_list">
                                 <div *ngIf="item.ans_status=='1' && item.status=='1'">
                                     <li>
@@ -309,58 +304,40 @@
                 </div>
             </div>
         </section>
-
     </div>
     <div class="col-6 ">
         <div class="row " style="margin-right:60px;margin-top:80px; ">
-            <form>
+            <form #faqform="ngForm" (ngSubmit)="saveDetails(faqform)">
                 <div class="row ">
                     <div class="col-12 ">
                         <div class="form-group ">
-                            <textarea class="form-control w-100 " name="que " id="message " cols="30 " rows="5+ " onfocus="this.placeholder='' " onblur="this.placeholder='Enter your query' " placeholder=" Enter you query " [(ngModel)]="que "></textarea>
+                            <!-- <input placeholder="Name" (keypress)="onKeyPressText($event)" #name="ngModel" name="Name " [(ngModel)]="Name " type="text " class="form-control " required> -->
+                            <textarea class="form-control w-100 " name="Question_asked" #que="ngModel" [(ngModel)]="Question_asked" cols="30 " rows="5" placeholder=" Enter you Query " required></textarea>
+                            <mat-error *ngIf="que.hasError( 'required') && que.touched ">
+                                Please write the Question.
+                            </mat-error>
                         </div>
                     </div>
                     <div class="col-12 ">
                         <div class="form-group ">
-                            <input class="form-control valid " name="email " id="email " type="email " onfocus="this.placeholder='' " onblur="this.placeholder='Enter email address' " placeholder="Email " [(ngModel)]="email ">
+                            <input placeholder="Email_id" #emaill="ngModel" name="Question_Email_id" [(ngModel)]="Question_Email_id" type="email" class="form-control" email required>
+                            <mat-error *ngIf="emaill.hasError( 'required') && emaill.touched ">
+                                Email ID is required.
+                            </mat-error>
+                            <mat-error *ngIf="emaill.hasError('email')">
+                                Email id is invalid.
+                            </mat-error>
                         </div>
                     </div>
                 </div>
                 <div class="form-group mt-3 ">
-                    <button type="submit " class="button button-contactForm boxed-btn " (click)="onSubmit() ">Send</button>
+                    <button mat-stroked-button color="warn" type="submit " style="width: 100px;" [disabled]="!(faqform.valid)" (click)="onSubmit()">Send</button>
                 </div>
             </form>
         </div>
     </div>
 
 
-    <!-- <form class="form-contact contact_form " action="contact_process.php " method="post " id="contactForm " novalidate="novalidate ">
-                    <div class="row ">
-                        <div class="col-12 ">
-                            <div class="form-group ">
-                                <textarea class="form-control w-100 " name="message " id="message " cols="30 " rows="9 " onfocus="this.placeholder='' " onblur="this.placeholder='Enter Message' " placeholder=" Enter Message "></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 ">
-                            <div class="form-group ">
-                                <input class="form-control valid " name="name " id="name " type="text " onfocus="this.placeholder='' " onblur="this.placeholder='Enter your name' " placeholder="Enter your name ">
-                            </div>
-                        </div>
-                        <div class="col-sm-6 ">
-                            <div class="form-group ">
-                                <input class="form-control valid " name="email " id="email " type="email " onfocus="this.placeholder='' " onblur="this.placeholder='Enter email address' " placeholder="Email ">
-                            </div>
-                        </div>
-                        <div class="col-12 ">
-                            <div class="form-group ">
-                                <input class="form-control " name="subject " id="subject " type="text " onfocus="this.placeholder='' " onblur="this.placeholder='Enter Subject' " placeholder="Enter Subject ">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group mt-3 ">
-                        <button type="submit " class="button button-contactForm boxed-btn ">Send</button>
-                    </div>
-                </form> -->
 </div>
 
 
