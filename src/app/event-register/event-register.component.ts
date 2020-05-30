@@ -27,7 +27,7 @@ export class EventRegisterComponent implements OnInit {
 
 
 
-  Email_id:string;
+  Email_id:string="thakkarhelly13@gmail.com";
   Name:string;
   Mobile:string;
   Colleage_Name:string;

@@ -27,7 +27,7 @@
                         <div class="col-6 ">
                             <div class="form-group" style="margin: 10px;">
                                 <!-- <mat-form-field class="example-full-width example-margin"> -->
-                                <input placeholder="Email_id" #emaill="ngModel" name="Email_id" [(ngModel)]="Email_id" type="email" class="form-control" email required>
+                                <input placeholder="Email_id" #emaill="ngModel" name="Email_id" [(ngModel)]="Email_id" type="email" class="form-control" email required disabled value={{Email_id}}>
                                 <mat-error *ngIf="emaill.hasError( 'required') && emaill.touched ">
                                     Email ID is required.
                                 </mat-error>
