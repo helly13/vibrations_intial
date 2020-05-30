@@ -7,6 +7,13 @@ import { Router,ActivatedRoute } from "@angular/router";
 import { ProductService } from "../services/product.service";
 import { Product } from "../classes/product";
 
+export class product
+{
+  constructor(
+    public email:string,
+    public Product_id:string
+    ){}
+}
 
 @Component({
   selector: 'app-product',
@@ -16,7 +23,8 @@ import { Product } from "../classes/product";
 export class ProductComponent implements OnInit {
 
   Product_List:Product[];
-  interesed_flag:boolean=false;
+  Email_id="thakkarhelly13@gmail.com";
+  interesed_flag:any;
 
   constructor(private product_ser:ProductService,private _router:Router) { }
 
@@ -29,11 +37,28 @@ export class ProductComponent implements OnInit {
         console.log(this.Product_List);
       }
     );
+
+
   }
 
-  // onClick()
-  // {
-  //   this.interesed_flag=true;
-  //   this._router.navigate["/product"]
-  // }
+  onClick(item)
+  {
+    // this.interesed_flag=true;
+    // this._router.navigate["/product"]
+    // console.log(item._id);
+    this.product_ser.addProducts(new product(this.Email_id,item._id)).subscribe(
+      (data:any)=>{
+        console.log(data);
+        if(data=="0")
+        {
+          alert("Thank you for showing your Interest");
+          this.interesed_flag="Interested";
+        }
+        else if(data=="1")
+        {
+          alert("You have already shown your interest");
+        }
+      }
+    );
+  }
 }

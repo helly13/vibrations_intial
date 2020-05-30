@@ -13,10 +13,10 @@
                         ₹{{item.price}}
                     </div>
                 </figcaption>
-                <a href="#" class="add-to-cart">Click here if you're intrested</a>
-                <div *ngIf="interesed_flag">
-                    <a href="#" class="add-to-cart">Intrested</a>
-                </div>
+                <a class="add-to-cart" (click)="onClick(item)">Click here if you're interested.</a>
+                <!-- <div *ngIf="!(interesed_flag)">
+                    <a class="add-to-cart">Intrested</a>
+                </div> -->
 
 
             </figure>
