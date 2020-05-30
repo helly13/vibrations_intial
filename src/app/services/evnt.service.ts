@@ -13,6 +13,7 @@ export class EvntService {
   private event_team_url="http://localhost:3000/event_team";
   private volunteer_apply_url="http://localhost:3000/volunteer/"
   private volunteer_status_url="http://localhost:3000/check_volunterring/"
+  private event_gallery_url="http://localhost:3000/eventgallary/"
 
   constructor(private _http:HttpClient) { }
 
@@ -50,5 +51,10 @@ export class EvntService {
   getVolunteerStatus(email:any)
   {
     return this._http.get(this.volunteer_status_url+email);
+  }
+
+  getEventImages()
+  {
+    return this._http.get(this.event_gallery_url);
   }
 }

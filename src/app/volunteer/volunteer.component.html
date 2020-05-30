@@ -12,14 +12,19 @@
 
                         <form class="example-form" (ngSubmit)="onClickApply()" #f="ngForm" name="Volunteer_form">
                             <mat-form-field class="example-full-width example-margin">
-                                <input matInput name="Experience" ngModel #exp="ngModel" required placeholder="Experience" [(ngModel)]="Experience">
+                                <input matInput name="Experience" ngModel #exp="ngModel" type="number" required max="24" placeholder="Experience (Months)" [(ngModel)]="Experience">
                                 <mat-error *ngIf="exp?.hasError('required')">
                                     Experience is required.
                                 </mat-error>
                             </mat-form-field>
+                            <div *ngIf="exp.value>24">
+                                <mat-error>
+                                    You have write it beyound the limits.
+                                </mat-error>
+                            </div>
 
                             <br><br>
-                            <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid ">Apply</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                            <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid || exp.value>24 ">Apply</button> &nbsp;&nbsp;&nbsp;&nbsp;
                             <button mat-raised-button color="warn" (click)="onclickBack()">Back</button>
 
                         </form>

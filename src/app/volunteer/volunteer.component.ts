@@ -51,7 +51,7 @@ export class VolunteerComponent implements OnInit {
         {
           alert("Already Applied");
         }
-        if(data==this.flag_limt)
+        else if(data==this.flag_limt)
         {
           alert("You have reached to maximun limit of Application");
         }

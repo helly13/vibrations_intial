@@ -43,11 +43,11 @@
                         <div class="col-6 ">
                             <div class="form-group" style="margin: 10px;">
                                 <!-- <mat-form-field class="example-full-width example-margin"> -->
-                                <input placeholder="Mobile Number" (keypress)="onKeyPressNumber($event)" #mob="ngModel" name="Mobile" [(ngModel)]="Mobile" type="tel" class="form-control " required required minlength="10">
+                                <input placeholder="Mobile Number" (keypress)="onKeyPressNumber($event)" #mob="ngModel" name="Mobile" [(ngModel)]="Mobile" type="tel" class="form-control " required required minlength="10" required maxlength=10>
                                 <mat-error *ngIf="mob.hasError( 'required') && mob.touched ">
                                     Mobile Number is required.
                                 </mat-error>
-                                <mat-error *ngIf="mob.hasError( 'minlength')">
+                                <mat-error *ngIf="mob.hasError( 'minlength') || mob.hasError('maxlength')">
                                     Mobile Number is Invalid.
                                 </mat-error>
                                 <!-- <mat-error *ngIf="mob.value.length>=11">

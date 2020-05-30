@@ -110,7 +110,6 @@ export class EventRegisterComponent implements OnInit {
           alert("Your participation request is sucessfully accepted");
           this._router.navigate(["/event"]);
         }
-
       }
     );
   }
