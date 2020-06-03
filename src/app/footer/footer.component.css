@@ -1,8 +1,12 @@
-
 .section_title h4 {
-  font-size: 30px;
-  font-weight: 400;
-  color: rgb(255, 69, 51);
-  font-family: anton, sans-serif;
-  margin-bottom: 0px;
+    font-size: 30px;
+    font-weight: 400;
+    color: rgb(255, 69, 51);
+    font-family: anton, sans-serif;
+    margin-bottom: 0px;
+}
+
+img {
+    width: 250px;
+    height: 100px;
 }
