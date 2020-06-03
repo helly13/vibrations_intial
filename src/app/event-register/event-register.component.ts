@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-;
 import { FormBuilder, FormGroup } from '@angular/forms';
 import {
   FormControl,
@@ -42,6 +41,7 @@ export class EventRegisterComponent implements OnInit {
   team_flag: boolean;
   clg_flag: boolean;
   teamList: any[] = [];
+  student_id:any;
   already_participated: any = 'You have already participated in this event';
   successfully_participated: any =
     'Your participation request is sucessfully accepted';
@@ -88,6 +88,7 @@ export class EventRegisterComponent implements OnInit {
       .subscribe((data: any) => {
         // console.log(data);
         this.Name = data[0].name;
+        this.student_id=data[0]._id;
         this.Mobile = data[0].contact;
         if (data[0].stu_status == 'on') {
           this.Colleage_Name = 'BIT';
@@ -121,39 +122,63 @@ export class EventRegisterComponent implements OnInit {
   onRegister() {
     // console.log('Register Clicked');
     var flag = 0;
-    for (let i = 0; i < this.teamList.length; i++) {
-      if (
-        this.Team_Name.toLocaleLowerCase().trim() ==
-        this.teamList[i].name.toLocaleLowerCase().trim()
-      ) {
-        flag = 1;
+    if (this.team_flag) {
+      for (let i = 0; i < this.teamList.length; i++) {
+        if (
+          this.Team_Name.toLocaleLowerCase().trim() ==
+          this.teamList[i].name.toLocaleLowerCase().trim()
+        ) {
+          flag = 1;
+        }
       }
-    }
-    if (flag == 0) {
-      this.evnt_ser
-        .eventRegisteration(
-          new participants(
-            this.Event_Name,
-            this.Email_id,
-            this.Colleage_Name,
-            this.Mobile,
-            this.Team_Name,
-            this.Team_Size
+      if (flag == 0) {
+        this.evnt_ser
+          .eventRegisteration(
+            new participants(
+              this.Event_Name,
+              this.Email_id,
+              this.Colleage_Name,
+              this.Mobile,
+              this.Team_Name,
+              this.Team_Size
+            )
           )
-        )
-        .subscribe((data: any[]) => {
-          console.log(data);
-          if (data == this.already_participated) {
-            alert('You have already participated in this event');
-            this._router.navigate(['/event']);
-          }
-          if (data == this.successfully_participated) {
-            alert('Your participation request is sucessfully accepted');
-            this._router.navigate(['/event']);
-          }
-        });
+          .subscribe((data: any[]) => {
+            console.log(data);
+            if (data == this.already_participated) {
+              alert('You have already participated in this event');
+              this._router.navigate(['/event']);
+            }
+            if (data == this.successfully_participated) {
+              alert('Your participation request is sucessfully accepted');
+              this._router.navigate(['/event']);
+            }
+          });
+      } else {
+        alert('Team name is already taken please write another team name');
+      }
     } else {
-      alert('Team name is already taken please write another team name');
+      this.evnt_ser
+      .eventRegisteration(
+        new participants(
+          this.Event_Name,
+          this.Email_id,
+          this.Colleage_Name,
+          this.Mobile,
+        )
+      )
+      .subscribe((data: any[]) => {
+        console.log(data);
+        if (data == this.already_participated) {
+          alert('You have already participated in this event');
+          this._router.navigate(['/event']);
+        }
+        if (data == this.successfully_participated) {
+          alert('Your participation request is sucessfully accepted');
+          this._router.navigate(['/event']);
+        }
+      });
+
     }
   }
 

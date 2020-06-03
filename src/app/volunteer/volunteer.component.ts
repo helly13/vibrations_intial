@@ -5,7 +5,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { Router,ActivatedRoute } from "@angular/router";
 import { EvntService } from "../services/evnt.service";
-import { SessionStorageService } from 'ngx-webstorage';
+import { SessionStorageService } from 'angular-web-storage';
 
 @Component({
   selector: 'app-volunteer',
@@ -25,7 +25,7 @@ export class VolunteerComponent implements OnInit {
 
   ngOnInit(): void {
     this.Event_Name=this.act_router.snapshot.params["name"];
-    this.Email=this.sessionst.retrieve('email_id');
+    this.Email=this.sessionst.get('email_id');
 
     this.evnt_ser.getVolunteerStatus(this.Email).subscribe(
       (data:any)=>

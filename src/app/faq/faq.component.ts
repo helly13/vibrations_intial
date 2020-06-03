@@ -4,6 +4,7 @@ import { NgForm } from "@angular/forms";
 import { HttpClient,HttpHeaders } from "@angular/common/http";
 import { Faq } from "../classes/faq.model";
 import { FaqService } from "../services/faq.service";
+import { LocalStorageService,SessionStorageService } from "angular-web-storage";
 
 @Component({
   selector: 'app-faq',
@@ -19,11 +20,13 @@ export class FaqComponent implements OnInit {
   Email_id:string;
   Question_asked:string;
 
-  constructor(private faq_ser:FaqService) { }
+  constructor(private faq_ser:FaqService,private localst:LocalStorageService,private sessionst:SessionStorageService) { }
 
   ngOnInit(): void {
 
     // console.log("hello");
+    console.log(this.sessionst.get('email_id'));
+    this.Email_id=this.sessionst.get('email_id');
 
     this.faq_ser.getFaqList().subscribe(
       (data:any[])=>{

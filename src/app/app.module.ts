@@ -17,16 +17,13 @@ import { HomeComponent } from './home/home.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ContactComponent } from './contact/contact.component';
 import { PerformerComponent } from './performer/performer.component';
-import { VenueComponent } from './venue/venue.component';
 import { TeamComponent } from "./team/team.component";
-import { BrocherComponent } from './brocher/brocher.component';
 import { AftermovieComponent } from './aftermovie/aftermovie.component';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { EventgalleryComponent } from './eventgallery/eventgallery.component';
 import { EvntComponent } from "./evnt/evnt.component";
 import { FaqComponent } from './faq/faq.component';
 import { SponsorComponent } from './sponsor/sponsor.component';
-import { GrabpassComponent } from './grabpass/grabpass.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -41,13 +38,14 @@ import {MatCardModule} from '@angular/material/card';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
-import { SignupComponent } from './signup/signup.component';
 import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 import { NgxWebstorageModule } from "ngx-webstorage";
 import { AngularWebStorageModule } from "angular-web-storage";
 import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -58,23 +56,20 @@ import {MatSelectModule} from '@angular/material/select';
     AboutusComponent,
     ContactComponent,
     PerformerComponent,
-    VenueComponent,
     TeamComponent,
-    BrocherComponent,
     AftermovieComponent,
     ScheduleComponent,
     EventgalleryComponent,
     EvntComponent,
     FaqComponent,
     SponsorComponent,
-    GrabpassComponent,
     EventRegisterComponent,
     VolunteerComponent,
     LoginComponent,
     ProductComponent,
-    SignupComponent,
     ResetpasswordComponent,
     ForgetpasswordComponent,
+    SignUpComponent,
 
   ],
   imports: [
@@ -102,6 +97,7 @@ import {MatSelectModule} from '@angular/material/select';
     AngularWebStorageModule,
     MatTooltipModule,
     MatSelectModule,
+    MatRadioModule,
     NgxWebstorageModule.forRoot()
 
 

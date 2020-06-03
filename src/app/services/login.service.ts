@@ -23,6 +23,7 @@ export class LoginService {
 
   onSignup(item)
   {
+    console.log(item);
     let _head=new HttpHeaders().set('Content-Type','application/json');
     let body=JSON.stringify(item);
     return this._http.post(this.signup_url,body,{headers:_head});

@@ -30,6 +30,7 @@ export class EvntComponent implements OnInit {
   sub_events: any[] = [];
   event_name: any[] = [];
   BIT_flag: boolean;
+  Login_flag:boolean;
   email: string;
   i: number = 0;
 
@@ -38,6 +39,14 @@ export class EvntComponent implements OnInit {
     const BIT = this.sessionst.get('student_type');
     console.log(this.email);
     console.log(BIT);
+
+    if(this.email)
+    {
+      this.Login_flag=true;
+    }
+    else{
+      this.Login_flag=false;
+    }
     if (BIT) {
       if (BIT.toLowerCase() == 'on') {
         // console.log("in");

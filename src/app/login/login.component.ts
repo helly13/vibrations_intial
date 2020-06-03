@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
 
   onClickSignup()
   {
-    this._router.navigate(['signup']);
+    this._router.navigate(['sign_up']);
   }
 
 onclickforget()
