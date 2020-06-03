@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { timer } from "rxjs";
+import { Observable, interval, Subscription } from 'rxjs';
+import 'rxjs/add/observable/interval';
 import { LocalStorageService,SessionStorageService } from "angular-web-storage";
 import { EvntService } from "../services/evnt.service";
 
@@ -16,6 +17,8 @@ export class HeaderComponent implements OnInit {
   email_id:any;
   User_Name:string;
   ngOnInit(): void {
+
+
 
     this.email_id=this.sessionst.get('email_id');
     // console.log("header :: "+this.email_id);

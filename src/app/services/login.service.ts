@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient,HttpHeaders } from "@angular/common/http";
+import { SessionStorageService } from 'angular-web-storage';
 
 
 @Injectable({
@@ -11,7 +12,7 @@ export class LoginService {
   private signup_url="http://localhost:3000/signup/";
   private forget_password_url="http://localhost:3000/forgetpassword/";
   private reset_password_url="http://localhost:3000/resetpassword/";
-  constructor(private _http:HttpClient) { }
+  constructor(private _http:HttpClient,private sessionst:SessionStorageService) { }
 
   getLoggedin(item)
   {
@@ -43,5 +44,10 @@ export class LoginService {
     let _head=new HttpHeaders().set('Content-Type','application/json');
     let body=JSON.stringify(item);
     return this._http.post(this.reset_password_url,body,{headers:_head});
+  }
+
+  loggedIn()
+  {
+    return !!this.sessionst.get('email_id');
   }
 }

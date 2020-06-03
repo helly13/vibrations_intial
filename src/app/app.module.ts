@@ -100,9 +100,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     MatTooltipModule,
     MatSelectModule,
     MatRadioModule,
-    NgxWebstorageModule.forRoot()
-
-
+    NgxWebstorageModule.forRoot(),
 
 
   ],
