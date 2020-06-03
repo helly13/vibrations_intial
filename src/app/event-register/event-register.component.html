@@ -9,7 +9,7 @@
             <p style="text-align: center;">
                 <a href="{{pdf_file}}">Click Here for Rules</a>
                 <!-- <pdf-viewer [src]="pdf_file" [render-text]="true" [show-all]="false" style="display: block;">
-                </pdf-viewer> -->
+              </pdf-viewer> -->
             </p>
             <mat-card-content>
                 <form #eventregform="ngForm" (ngSubmit)="saveDetails(eventregform)">
@@ -17,7 +17,7 @@
                         <div class="col-6 ">
                             <div class="form-group" style="margin: 10px;">
                                 <!-- <mat-form-field class="example-full-width example-margin"> -->
-                                <input placeholder="Name" (keypress)="onKeyPressText($event)" #name="ngModel" name="Name " [(ngModel)]="Name " type="text " class="form-control " required>
+                                <input placeholder="Name" (keypress)="onKeyPressText($event)" #name="ngModel" name="Name " [(ngModel)]="Name " type="text " class="form-control " required value={{this.Name}} disabled>
                                 <mat-error *ngIf="name.hasError( 'required') && name.touched ">
                                     Name is required.
                                 </mat-error>
@@ -43,7 +43,7 @@
                         <div class="col-6 ">
                             <div class="form-group" style="margin: 10px;">
                                 <!-- <mat-form-field class="example-full-width example-margin"> -->
-                                <input placeholder="Mobile Number" (keypress)="onKeyPressNumber($event)" #mob="ngModel" name="Mobile" [(ngModel)]="Mobile" type="tel" class="form-control " required required minlength="10" required maxlength=10>
+                                <input placeholder="Mobile Number" (keypress)="onKeyPressNumber($event)" #mob="ngModel" name="Mobile" [(ngModel)]="Mobile" type="tel" class="form-control " required required minlength="10" required maxlength=10 value={{this.Mobile}}>
                                 <mat-error *ngIf="mob.hasError( 'required') && mob.touched ">
                                     Mobile Number is required.
                                 </mat-error>
@@ -51,8 +51,8 @@
                                     Mobile Number is Invalid.
                                 </mat-error>
                                 <!-- <mat-error *ngIf="mob.value.length>=11">
-                                    Mobile Number is Invalid.
-                                </mat-error> -->
+                                  Mobile Number is Invalid.
+                              </mat-error> -->
                                 <!-- <p>{{mob.value.length}}</p> -->
                                 <!-- </mat-form-field> -->
                             </div>
@@ -60,7 +60,7 @@
                         <div class="col-6 ">
                             <div class="form-group" style="margin: 10px;">
                                 <!-- <mat-form-field class="example-full-width example-margin"> -->
-                                <input placeholder="College Name" (keypress)="onKeyPressText($event)" #clg="ngModel" name="Colleage_Name " [(ngModel)]="Colleage_Name " type="text " class="form-control " required>
+                                <input placeholder="College Name" (keypress)="onKeyPressText($event)" #clg="ngModel" name="Colleage_Name " [(ngModel)]="Colleage_Name " type="text " class="form-control " required value={{this.Colleage_Name}} disabled={{clg_flag}}>
                                 <mat-error *ngIf="clg.hasError( 'required') && clg.touched ">
                                     College Name is required.
                                 </mat-error>
@@ -87,6 +87,17 @@
                                 <mat-error *ngIf="tsize.hasError( 'required') && tsize.touched ">
                                     Team size is required.
                                 </mat-error>
+                                <div *ngIf="tsize.value>15">
+                                    <mat-error>
+                                        15 is Maximum limit.
+                                    </mat-error>
+                                </div>
+                                <div *ngIf="tsize.value<2">
+                                    <mat-error>
+                                        2 is Minimum limit.
+                                    </mat-error>
+                                </div>
+
                                 <!-- </mat-form-field> -->
                             </div>
                         </div>
@@ -127,9 +138,9 @@
 
             </mat-card-content>
             <!-- <mat-card-actions>
-        <button mat-button>LIKE</button>
-        <button mat-button>SHARE</button>
-      </mat-card-actions> -->
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions> -->
         </mat-card>
     </div>
     <br><br><br>

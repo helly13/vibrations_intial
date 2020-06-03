@@ -47,10 +47,11 @@
                                 </nav>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">s
+                        <div class="col-xl-2 col-lg-2 d-none d-lg-block">
                             <div class="buy_tkt">
                                 <div class="book_btn d-none d-md-block">
-                                    <a [routerLink]="['login']" routerLinkActive="router-link-active">Log in</a>
+                                    <a style="cursor: pointer;" *ngIf=flag (click)="onClickLogin()">Log in</a>
+                                    <a style="cursor: pointer;" *ngIf=!flag (click)="logout()" matTooltip="Click for Logout">Hi {{User_Name}} !</a>
                                 </div>
                             </div>
                         </div>

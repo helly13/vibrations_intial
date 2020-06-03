@@ -11,11 +11,17 @@ export class EvntService {
   private show_event_url="http://localhost:3000/show_Events/";
   private participants_url="http://localhost:3000/participate_Events/";
   private event_team_url="http://localhost:3000/event_team";
-  private volunteer_apply_url="http://localhost:3000/volunteer/"
-  private volunteer_status_url="http://localhost:3000/check_volunterring/"
-  private event_gallery_url="http://localhost:3000/eventgallary/"
+  private volunteer_apply_url="http://localhost:3000/volunteer/";
+  private volunteer_status_url="http://localhost:3000/check_volunterring/";
+  private event_gallery_url="http://localhost:3000/eventgallary/";
+  private student_details_url="http://localhost:3000/student/";
 
   constructor(private _http:HttpClient) { }
+
+  getStudentDetailsById(email)
+  {
+    return this._http.get(this.student_details_url+email);
+  }
 
   getShowEvent()
   {

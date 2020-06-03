@@ -1,9 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import { Router,ActivatedRoute } from "@angular/router";
 import { EvntService } from "../services/evnt.service";
+import { SessionStorageService } from 'ngx-webstorage';
 
 @Component({
   selector: 'app-volunteer',
@@ -14,15 +16,17 @@ export class VolunteerComponent implements OnInit {
 
   Experience:string;
   Event_Name:string;
-  Email:any="thakkarhelly13@gmail.com";
+  Email:any;
   Volunteer_Status:any;
   flag_applied:any="already_aplied";
   flag_limt:any="already_aplied to limit"
 
-  constructor(private evnt_ser:EvntService,private act_router:ActivatedRoute,private _router:Router) { }
+  constructor(private evnt_ser:EvntService,private act_router:ActivatedRoute,private sessionst:SessionStorageService,private _router:Router) { }
 
   ngOnInit(): void {
     this.Event_Name=this.act_router.snapshot.params["name"];
+    this.Email=this.sessionst.retrieve('email_id');
+
     this.evnt_ser.getVolunteerStatus(this.Email).subscribe(
       (data:any)=>
       {

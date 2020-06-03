@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
+import { timer } from "rxjs";
+import { LocalStorageService,SessionStorageService } from "angular-web-storage";
+import { EvntService } from "../services/evnt.service";
 
 @Component({
   selector: 'app-header',
@@ -8,9 +11,43 @@ import { Router } from "@angular/router";
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private _router: Router,) { }
-
+  constructor(private _router: Router,private localst:LocalStorageService,private sessionst:SessionStorageService,private evnt_ser:EvntService) { }
+  flag:boolean;
+  timespan:any;
+  email_id:any;
+  User_Name:any;
   ngOnInit(): void {
+
+    this.email_id=this.sessionst.get('email_id');
+    console.log("header :: "+this.email_id);
+    if(this.email_id)
+    {
+      this.flag=false;
+      this.evnt_ser.getStudentDetailsById(this.email_id).subscribe(
+        (data:any)=>{
+          this.User_Name=data[0].name;
+        }
+      );
+    }
+    else
+    {
+      this.flag=true;
+    }
+
+
+    // this.refreshData();
+  }
+  onClickLogin()
+  {
+    this._router.navigate(['login']);
+    this.ngOnInit();
   }
 
+  logout()
+  {
+    this.sessionst.remove('email_id');
+    this.sessionst.remove('student_type');
+    this._router.navigate(['login']);
+    this.ngOnInit();
+  }
 }

@@ -20,6 +20,9 @@ import { EventRegisterComponent } from "./event-register/event-register.componen
 import { VolunteerComponent } from "./volunteer/volunteer.component";
 import { ProductComponent } from "./product/product.component";
 import { LoginComponent } from "./login/login.component";
+import { SignupComponent } from "./signup/signup.component";
+import { ForgetpasswordComponent } from "./forgetpassword/forgetpassword.component";
+import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 
 const routes: Routes = [
 
@@ -42,7 +45,11 @@ const routes: Routes = [
   {path:"eventreg/:name",component:EventRegisterComponent},
   {path:"volunteer/:name",component:VolunteerComponent},
   {path:"product",component:ProductComponent},
-  {path:"login",component:LoginComponent}
+  {path:"login",component:LoginComponent},
+  {path:"signup",component:SignupComponent},
+  {path:"forgetpassword",component:ForgetpasswordComponent},
+  {path:"resetpassword",component:ResetpasswordComponent}
+
 
 ];
 

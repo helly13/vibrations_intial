@@ -1,29 +1,54 @@
 <div class="bg">
     <div class="login-box">
         <h2>Login</h2>
-        <form>
+        <form #loginform="ngForm">
             <div class="user-box">
-                <input type="text" name="" required="">
+                <!-- <input type="text" name="" required=""> -->
+                <input #emaill="ngModel" name="Email_id" [(ngModel)]="Email_id" type="email" class="form-control" email required>
+                <mat-error *ngIf="emaill.hasError( 'required') && emaill.touched ">
+                    Email ID is required.
+                </mat-error>
+                <mat-error *ngIf="emaill.hasError('email')">
+                    Email id is invalid.
+                </mat-error>
+
                 <label>Username</label>
             </div>
+            <br>
             <div class="user-box">
-                <input type="password">
+                <!-- <input type="password"> -->
+                <input #pass="ngModel" name="Password" [(ngModel)]="Password" type="password" class="form-control" required>
+                <mat-error *ngIf="pass.hasError( 'required') && pass.touched ">
+                    Password is required.
+                </mat-error>
                 <label>Password</label>
             </div>
-            <a href="">
+            <br>
+            <div *ngIf="loginform.valid">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a (click)="onclicklogin()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span> Login
+                </a>
+            </div>
+
+            <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+            <div>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <a (click)="onClickSignup()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span> Sign up
+                </a>
+                <br>
+                <a (click)="onclickforget()">&nbsp;&nbsp;&nbsp;<span></span>
                 <span></span>
                 <span></span>
-                <span></span>
-                <span></span> Login
-            </a>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span> Sign up
-            </a>
-            <a>&nbsp;&nbsp;&nbsp;Forget Password ?</a>
+                <span></span>Forget Password ?</a>
+            </div>
         </form>
 
     </div>

@@ -12,16 +12,19 @@
 
                         <form class="example-form" (ngSubmit)="onClickApply()" #f="ngForm" name="Volunteer_form">
                             <mat-form-field class="example-full-width example-margin">
-                                <input matInput name="Experience" ngModel #exp="ngModel" type="number" required max="24" placeholder="Experience (Months)" [(ngModel)]="Experience">
+                                <textarea cols="2" rows="5" matInput name="Experience" ngModel #exp="ngModel" type="number" required max="24" placeholder="Write your experience in 100 words" [(ngModel)]="Experience" maxlength="100"></textarea>
                                 <mat-error *ngIf="exp?.hasError('required')">
                                     Experience is required.
                                 </mat-error>
-                            </mat-form-field>
-                            <div *ngIf="exp.value>24">
-                                <mat-error>
-                                    You have write it beyound the limits.
+                                <mat-error *ngIf="exp?.hasError('maxlength')">
+                                    You have reached to the maximum limit.
                                 </mat-error>
-                            </div>
+                            </mat-form-field>
+                            <!-- <div *ngIf="exp.value>24">
+                              <mat-error>
+                                  You have write it beyound the limits.
+                              </mat-error>
+                          </div> -->
 
                             <br><br>
                             <button mat-raised-button color="primary" type="submit" [disabled]="!f.valid || exp.value>24 ">Apply</button> &nbsp;&nbsp;&nbsp;&nbsp;
@@ -30,6 +33,7 @@
                         </form>
                     </div>
                     <div class="col-6">
+                        <h2>Your Volunteer Status for {{Event_Name}}</h2>
                         <p>{{Volunteer_Status}}</p>
                     </div>
                 </div>

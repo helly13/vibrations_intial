@@ -41,7 +41,13 @@ import {MatCardModule} from '@angular/material/card';
 import { VolunteerComponent } from './volunteer/volunteer.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
-
+import { SignupComponent } from './signup/signup.component';
+import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
+import { NgxWebstorageModule } from "ngx-webstorage";
+import { AngularWebStorageModule } from "angular-web-storage";
+import { ForgetpasswordComponent } from './forgetpassword/forgetpassword.component';
+import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -66,6 +72,10 @@ import { ProductComponent } from './product/product.component';
     VolunteerComponent,
     LoginComponent,
     ProductComponent,
+    SignupComponent,
+    ResetpasswordComponent,
+    ForgetpasswordComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -88,7 +98,12 @@ import { ProductComponent } from './product/product.component';
     MatCheckboxModule,
     MatCardModule,
     NgxExtendedPdfViewerModule,
-    PdfViewerModule
+    PdfViewerModule,
+    AngularWebStorageModule,
+    MatTooltipModule,
+    MatSelectModule,
+    NgxWebstorageModule.forRoot()
+
 
 
 
