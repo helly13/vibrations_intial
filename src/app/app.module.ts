@@ -46,6 +46,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatSelectModule} from '@angular/material/select';
 import {MatRadioModule} from '@angular/material/radio';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
     ResetpasswordComponent,
     ForgetpasswordComponent,
     SignUpComponent,
+    NotFoundComponent,
 
   ],
   imports: [

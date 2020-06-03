@@ -20,6 +20,8 @@ import { LoginComponent } from "./login/login.component";
 import { ForgetpasswordComponent } from "./forgetpassword/forgetpassword.component";
 import { ResetpasswordComponent } from "./resetpassword/resetpassword.component";
 import { SignUpComponent } from "./sign-up/sign-up.component";
+import { AuthserviceService } from "./services/authservice.service";
+import { NotFoundComponent } from "./not-found/not-found.component";
 
 const routes: Routes = [
 
@@ -36,13 +38,14 @@ const routes: Routes = [
   {path:"schedule",component:ScheduleComponent},
   {path:"faq",component:FaqComponent},
   {path:"sponsor",component:SponsorComponent},
-  {path:"eventreg/:name",component:EventRegisterComponent},
-  {path:"volunteer/:name",component:VolunteerComponent},
+  {path:"eventreg/:name",component:EventRegisterComponent,canActivate:[AuthserviceService]},
+  {path:"volunteer/:name",component:VolunteerComponent,canActivate:[AuthserviceService]},
   {path:"product",component:ProductComponent},
   {path:"login",component:LoginComponent},
   {path:"forgetpassword",component:ForgetpasswordComponent},
   {path:"resetpassword",component:ResetpasswordComponent},
-  {path:"sign_up",component:SignUpComponent}
+  {path:"sign_up",component:SignUpComponent},
+  {path:"**",component:NotFoundComponent}
 
 
 ];

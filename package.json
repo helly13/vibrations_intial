@@ -25,6 +25,7 @@
     "@angular/router": "~9.1.0",
     "@angular/youtube-player": "^9.2.0",
     "angular-web-storage": "^9.0.0",
+    "auth0-js": "^9.13.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.5.1",
     "ng2-pdf-viewer": "^6.3.0",
