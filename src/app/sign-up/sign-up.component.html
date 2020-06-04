@@ -119,7 +119,7 @@
                         </div>
                     </div>
 
-                    <div *ngIf="Stream && Year">
+                    <div *ngIf="Stream && Year && BIT=='on'">
                         <p>Student id</p>
                         <div class="row" style="margin: 10px;">
                             <div class="col-4">
@@ -135,7 +135,7 @@
                                 </mat-error>
                             </div>
                             <div class="col-4">
-                                <input *ngIf=Year value="/{{Year.substring(2)}}/" disabled style="width:100%">
+                                <input *ngIf=Year value="/{{Year.substring(2)}}" disabled style="width:100%">
                             </div>
 
                         </div>

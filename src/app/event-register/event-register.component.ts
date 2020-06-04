@@ -41,10 +41,8 @@ export class EventRegisterComponent implements OnInit {
   team_flag: boolean;
   clg_flag: boolean;
   teamList: any[] = [];
-  student_id:any;
-  already_participated: any = 'You have already participated in this event';
-  successfully_participated: any =
-    'Your participation request is sucessfully accepted';
+  student_id: any;
+
 
   constructor(
     private _formBuilder: FormBuilder,
@@ -57,7 +55,7 @@ export class EventRegisterComponent implements OnInit {
   ngOnInit(): void {
     this.Event_Name = this.act_router.snapshot.params['name'];
     this.Email_id = this.sessionst.get('email_id');
-    // console.log(this.Event_Name);
+
     this.evnt_ser
       .getEventDetailsByEventName(this.Event_Name)
       .subscribe((data: any[]) => {
@@ -88,7 +86,7 @@ export class EventRegisterComponent implements OnInit {
       .subscribe((data: any) => {
         // console.log(data);
         this.Name = data[0].name;
-        this.student_id=data[0]._id;
+        this.student_id = data[0]._id;
         this.Mobile = data[0].contact;
         if (data[0].stu_status == 'on') {
           this.Colleage_Name = 'BIT';
@@ -122,6 +120,12 @@ export class EventRegisterComponent implements OnInit {
   onRegister() {
     // console.log('Register Clicked');
     var flag = 0;
+    const already_participated:any = 'You have already participated in this event';
+    const successfully_participated:any =
+      'Your participation request is sucessfully accepted';
+    const successfully_team_participated:any =
+      'Your participation request as team is sucessfully accepted';
+
     if (this.team_flag) {
       for (let i = 0; i < this.teamList.length; i++) {
         if (
@@ -145,12 +149,14 @@ export class EventRegisterComponent implements OnInit {
           )
           .subscribe((data: any[]) => {
             console.log(data);
-            if (data == this.already_participated) {
+            if (data == already_participated) {
               alert('You have already participated in this event');
               this._router.navigate(['/event']);
             }
-            if (data == this.successfully_participated) {
-              alert('Your participation request is sucessfully accepted');
+            if (data == successfully_team_participated) {
+              alert(
+                'Your participation request as team is sucessfully accepted'
+              );
               this._router.navigate(['/event']);
             }
           });
@@ -159,26 +165,25 @@ export class EventRegisterComponent implements OnInit {
       }
     } else {
       this.evnt_ser
-      .eventRegisteration(
-        new participants(
-          this.Event_Name,
-          this.Email_id,
-          this.Colleage_Name,
-          this.Mobile,
+        .eventRegisteration(
+          new participants(
+            this.Event_Name,
+            this.Email_id,
+            this.Colleage_Name,
+            this.Mobile
+          )
         )
-      )
-      .subscribe((data: any[]) => {
-        console.log(data);
-        if (data == this.already_participated) {
-          alert('You have already participated in this event');
-          this._router.navigate(['/event']);
-        }
-        if (data == this.successfully_participated) {
-          alert('Your participation request is sucessfully accepted');
-          this._router.navigate(['/event']);
-        }
-      });
-
+        .subscribe((data: any[]) => {
+          console.log(data);
+          if (data == already_participated) {
+            alert('You have already participated in this event');
+            this._router.navigate(['/event']);
+          }
+          if (data == successfully_participated) {
+            alert('Your participation request is sucessfully accepted');
+            this._router.navigate(['/event']);
+          }
+        });
     }
   }
 

@@ -19,29 +19,57 @@ export class VolunteerComponent implements OnInit {
   Email:any;
   Volunteer_Status:any;
   flag_applied:any="already_aplied";
-  flag_limt:any="already_aplied to limit"
+  flag_limt:any="already_aplied to limit";
+  flag:boolean=false;
 
   constructor(private evnt_ser:EvntService,private act_router:ActivatedRoute,private sessionst:SessionStorageService,private _router:Router) { }
 
   ngOnInit(): void {
     this.Event_Name=this.act_router.snapshot.params["name"];
     this.Email=this.sessionst.get('email_id');
-
+    var status;
     this.evnt_ser.getVolunteerStatus(this.Email).subscribe(
       (data:any)=>
       {
-        if(data=='0')
+        console.log(data);
+        let volunteerDetails=data[0].volunteer_event;
+        console.log(volunteerDetails);
+        for(let i=0;i<volunteerDetails.length;i++)
         {
-          this.Volunteer_Status="Pending"
+          if(this.Event_Name==volunteerDetails[i].Event_name)
+          {
+            status=volunteerDetails[i].status;
+            console.log(status);
+            this.flag=true;
+          }
         }
-        if(data=='1')
+        console.log(this.flag)
+        if(this.flag)
         {
-          this.Volunteer_Status="Approved"
+          if(status=='0')
+          {
+            this.Volunteer_Status="Pending"
+          }
+          else if(status=='1')
+          {
+            this.Volunteer_Status="Approved"
+          }
+          else if(status=='2')
+          {
+            this.Volunteer_Status="Rejected"
+          }
+          else
+          {
+            this.Volunteer_Status="";
+          }
         }
-        if(data=='-1')
+        else
         {
-          this.Volunteer_Status="Rejected"
+          this.Volunteer_Status="Not applied";
         }
+
+
+
       }
     );
   }
@@ -53,15 +81,20 @@ export class VolunteerComponent implements OnInit {
         console.log(data);
         if(data==this.flag_applied)
         {
-          alert("Already Applied");
+          alert("You have already Applied");
+          this._router.navigate(['event']);
+
         }
         else if(data==this.flag_limt)
         {
           alert("You have reached to maximun limit of Application");
+          this._router.navigate(['event']);
+
         }
         else
         {
           alert("We have received your volunteer application");
+          this._router.navigate(['event']);
         }
       }
     );

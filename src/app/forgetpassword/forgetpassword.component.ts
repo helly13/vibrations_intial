@@ -12,7 +12,7 @@ import { Login1Service } from "../services/login1.service";
 })
 export class ForgetpasswordComponent implements OnInit {
 
-  constructor(private sessionst:SessionStorageService,private _router:Router,private log_ser:Login1Service) { }
+  constructor(private sessionst:SessionStorageService,private _router:Router,private evnt_ser:EvntService,private log_ser:Login1Service) { }
 
   Email_id:string;
   ngOnInit(): void {
@@ -22,15 +22,34 @@ export class ForgetpasswordComponent implements OnInit {
 
   onGetPassword()
   {
-    this.log_ser.onForgetPassword({"username":this.Email_id}).subscribe(
+    var flag=0;
+    this.evnt_ser.getStudentDetailsById(this.Email_id).subscribe(
       (data:any)=>{
-        // console.log(data);
-        if(data)
+        console.log(data);
+        console.log(data.length);
+        if(data.length>0)
         {
-          this._router.navigate(['resetpassword']);
+          console.log("andr aya");
+          flag=1;
+        }
+        if(flag==1)
+        {
+             this.log_ser.onForgetPassword({"username":this.Email_id}).subscribe(
+            (data:any)=>{
+              console.log(data);
+              if(data)
+              {
+                this._router.navigate(['resetpassword']);
+              }
+            }
+          );
+        }
+        else{
+          alert("No such user found to registered with this Email");
         }
       }
     );
+
 
   }
 

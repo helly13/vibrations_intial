@@ -115,6 +115,28 @@
 
                     </div>
 
+
+                    <!-- <div *ngIf="Team_Size>0">
+                        <p>Team Member List for {{Team_Name}}</p>
+                        <div class="row" style="margin: 10px;">
+                            <div class="col-6">
+                                <input placeholder="Name of Team Member" (keypress)="onKeyPressText($event)" #tname="ngModel" name="Name " [(ngModel)]="Name " type="text " class="form-control " required>
+                                <mat-error *ngIf="tname.hasError( 'required') && tname.touched ">
+                                    Name is required.
+                                </mat-error>
+                            </div>
+                            <div class="col-6">
+                                <input placeholder="College Name" (keypress)="onKeyPressText($event)" #tclg="ngModel" name="Colleage_Name " [(ngModel)]="Colleage_Name " type="text " class="form-control " required>
+                                <mat-error *ngIf="tclg.hasError( 'required') && tclg.touched ">
+                                    College Name is required.
+                                </mat-error>
+                            </div>
+
+
+                        </div>
+                    </div> -->
+
+
                     <div class="row">
                         <div class="col-5"></div>
                         <div class="col-3">
