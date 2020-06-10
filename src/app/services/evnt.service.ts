@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient,HttpHeaders } from "@angular/common/http";
-import { Evnt } from "../classes/evnt";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +15,9 @@ export class EvntService {
   private event_gallery_url="http://localhost:3000/eventgallary/";
   private student_details_url="http://localhost:3000/student/";
 
+
   constructor(private _http:HttpClient) { }
+
 
   getStudentDetailsById(email)
   {

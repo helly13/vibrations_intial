@@ -7,24 +7,24 @@ import { LoginService } from './login.service';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthserviceService implements CanActivate {
-  // email:string="";
+  email:string="";
 
-  constructor(private _route:Router,private sessionst:SessionStorageService,private log_Ser:LoginService) { }
-
+  constructor(private _data:LoginService,private _route:Router,private sessionst:SessionStorageService) { }
   canActivate(route:ActivatedRouteSnapshot,state:RouterStateSnapshot): boolean  {
-    // this.email=this.sessionst.get('email_id');
-    if(this.log_Ser.loggedIn())
+    this.email=this.sessionst.get('email_id');
+    if(this.email!=null)
     {
-      console.log('yo baby');
       return true;
+
     }
     else
     {
       alert('Login is required');
-      this._route.navigate(['']);
-      return false;
+      this._route.navigate(['login'])
     }
 
   }
 }
+

@@ -42,7 +42,10 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  onBack() {}
+  onBack() {
+    this._router.navigate(['login']);
+  }
+
   onClickSignup() {
     var flag = 0;
     this.evnt_ser

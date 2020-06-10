@@ -38,9 +38,12 @@
                         <div class="col-6 ">
                             <div class="form-group" style="margin: 10px;">
                                 <!-- <mat-form-field class="example-full-width example-margin"> -->
-                                <input placeholder="Password" #pass="ngModel" name="Password" [(ngModel)]="Password" type="password" class="form-control" required>
+                                <input placeholder="Password" #pass="ngModel" name="Password" [(ngModel)]="Password" type="password" class="form-control" required minlength=8 required>
                                 <mat-error *ngIf="pass.hasError( 'required') && pass.touched ">
                                     Password is required.
+                                </mat-error>
+                                <mat-error *ngIf="pass.hasError( 'minlength')">
+                                    Password must contain at least 8 character.
                                 </mat-error>
                                 <!-- </mat-form-field> -->
                             </div>

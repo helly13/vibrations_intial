@@ -59,7 +59,12 @@ export class EvntComponent implements OnInit {
     {
       // alert("Login First");
     }
+
     this.showEvents();
+
+    // this.evnt_ser.refreshNeeded$.subscribe(()=>{
+    //   this.showEvents();
+    // })
   }
 
   // openDialog(): void {
