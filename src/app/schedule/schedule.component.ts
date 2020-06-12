@@ -26,15 +26,15 @@ export class ScheduleComponent implements OnInit {
         console.log(data);
         while(this.i<data.length)
         {
-          if(data[this.i].Sub_Events.Date=="12/2/2020")
+          if(data[this.i].Sub_Events.Date=="12/2/2020"|| data[this.i].Sub_Events.Date=="12/02/2020")
           {
             this.Event_day1_details.push(data[this.i].Sub_Events);
           }
-          else if(data[this.i].Sub_Events.Date=="13/2/2020")
+          else if(data[this.i].Sub_Events.Date=="13/2/2020" || data[this.i].Sub_Events.Date=="13/02/2020")
           {
             this.Event_day2_details.push(data[this.i].Sub_Events);
           }
-          else if(data[this.i].Sub_Events.Date=="14/2/2020")
+          else if(data[this.i].Sub_Events.Date=="14/2/2020" || data[this.i].Sub_Events.Date=="14/02/2020" )
           {
             this.Event_day3_details.push(data[this.i].Sub_Events);
           }

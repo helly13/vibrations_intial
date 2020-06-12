@@ -12,11 +12,11 @@
 
                         <form class="example-form" (ngSubmit)="onClickApply()" #f="ngForm" name="Volunteer_form">
                             <mat-form-field class="example-full-width example-margin">
-                                <textarea cols="2" rows="5" matInput name="Experience" ngModel #exp="ngModel" type="number" required max="24" placeholder="Write your experience in 100 words" [(ngModel)]="Experience" maxlength="100"></textarea>
+                                <textarea cols="2" rows="5" (keypress)="onWordCount($event)" matInput name="Experience" ngModel #exp="ngModel" type="number" required max="24" placeholder="Write your experience in 100 words" [(ngModel)]="Experience"></textarea>
                                 <mat-error *ngIf="exp?.hasError('required')">
                                     Experience is required.
                                 </mat-error>
-                                <mat-error *ngIf="exp?.hasError('maxlength')">
+                                <mat-error *ngIf="word_count>100">
                                     You have reached to the maximum limit.
                                 </mat-error>
                             </mat-form-field>
@@ -24,6 +24,7 @@
                               <mat-error>
                                   You have write it beyound the limits.
                               </mat-error>
+
                           </div> -->
 
                             <br><br>

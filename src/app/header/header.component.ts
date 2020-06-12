@@ -28,15 +28,13 @@ export class HeaderComponent implements OnInit {
   postsSubscription:any;
   timespan:any;
   ngOnInit(): void {
-    // this.sub = Observable.interval(10000).subscribe((val) => {
-    //   console.log('called');
-    // });
-
     this.refreshData();
-
     this.email_id = this.sessionst.get('email_id');
-    // console.log("header :: "+this.email_id);
+    this.checkLoggedin();
+  }
 
+  checkLoggedin()
+  {
     if (this.email_id) {
 
       this.flag = false;
@@ -56,8 +54,8 @@ export class HeaderComponent implements OnInit {
     } else {
       this.flag = true;
     }
-
   }
+
   onClickLogin() {
 
     this.refreshData();
@@ -97,29 +95,14 @@ export class HeaderComponent implements OnInit {
 
     // this.flag=true;
     this.email_id = this.sessionst.get("email_id");
-    console.log(this.email_id);
+    // console.log(this.email_id);
     if (this.email_id==null) {
       this.flag = false;
     } else if(this.email_id) {
       // console.log("hellyyyy")
       this.flag = true;
-      console.log(this.email_id);
-      this.postsSubscription= this.evnt_ser
-      .getStudentDetailsById(this.email_id)
-      .subscribe((data: any) => {
-        console.log(data);
-        this.User_Name = data[0].name;
-        if (this.User_Name.indexOf(' ') > 0) {
-          this.User_Name = this.User_Name.substring(
-            0,
-            this.User_Name.indexOf(' ')
-          );
-        } else {
-          this.User_Name = this.User_Name;
-        }
-      });
-      console.log(this.User_Name);
-
+      // console.log(this.email_id);
+      this.postsSubscription=this.checkLoggedin();
 
     }
 

@@ -131,6 +131,11 @@ export class SignUpComponent implements OnInit {
   onKeyPressNumber(event: any) {
     // console.log(event);
     if (event.charCode >= 48 && event.charCode <= 57) {
+      if(this.Mobile.length==0)
+      {
+        if(event.charCode>=48 && event.charCode<=53)
+          event.preventDefault();
+      }
     } else {
       event.preventDefault();
     }

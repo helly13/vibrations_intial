@@ -13,8 +13,8 @@
 }
 
 #sponsors .sponsors-wrap {
-    border-top: 1px solid #FF4533;
-    border-left: 1px solid #FF4533;
+    /* border-top: 1px solid #FF4533;
+    border-left: 1px solid #FF4533; */
     margin-bottom: 30px;
 }
 
@@ -23,8 +23,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border-right: 1px solid #FF4533;
-    border-bottom: 1px solid #FF4533;
+    /* border-right: 1px solid #FF4533;
+    border-bottom: 1px solid #FF4533; */
     overflow: hidden;
     background: rgba(255, 255, 255, 0.5);
     height: 160px;
